@@ -1,0 +1,11 @@
+<%- include('partials/header2') %>
+<div class="jumbotron text-center">
+  <div class="container">
+    <h1 class="display-3">team Reviews for <%=teamName%></h1>
+    <h2> There are no reviews yet for this team.</h2>
+    <form action="/submitteamreview1" method="post">
+        <input type="hidden" name="teamName" value="<%= teamName %>">
+        <button type="submit" class="btn btn-dark btn-lg px-4 gap-3">Submit a Review</button>
+    </form>
+  </div>
+</div>

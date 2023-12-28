@@ -1,0 +1,47 @@
+<%- include('partials/header2') %>
+
+<div class="px-4 py-5 my-5 text-center">
+  <h1 class="display-5 fw-bold text-body-emphasis"><%= teamName %></h1>
+  <div class="col-lg-6 mx-auto">
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <!-- Use the existing "Review Team" button with an associated form -->
+          <form action="/review-team" method="post">
+              <input type="hidden" name="teamName" value="<%= teamName %>">
+              <button type="submit" class="btn btn-dark btn-lg px-4 gap-3">Review Team</button>
+          </form>
+      </div>
+  </div>
+</div>
+
+<div class="container px-4 py-5" id="euroleague-teams">
+    <h2 class="pb-2 border-bottom">Players</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+
+        <% for (let i = 0; i < firstName.rows.length; i++) { %>
+            <div class="feature col">
+                <!-- Display player name -->
+                <h3 class="fs-2 text-body-emphasis"><%= firstName.rows[i].first_name %> <%= lastName.rows[i].last_name %></h3>
+                <form action="/review-player" method="post">
+                    <!-- Pass player name as a hidden input -->
+                    <input type="hidden" name="playerName" value="<%= firstName.rows[i].first_name %> <%= lastName.rows[i].last_name %>">
+                    <button type="submit" class="btn btn-dark btn-lg">Review Player</button>
+                </form>
+            </div>
+        <% } %>
+    </div>
+
+    <!-- Coach Subtitle -->
+    <h2 class="pb-2 border-bottom mt-5">Coaches</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        <!-- Separate div for coach -->
+        <div class="feature col">
+            <!-- Display coach name -->
+            <h3 class="fs-2 text-body-emphasis"><%= coachName.rows[0].first_name %> <%= coachName.rows[0].last_name %></h3>
+            <form action="/review-coach" method="post">
+                <!-- Pass coach name as a hidden input -->
+                <input type="hidden" name="coachName" value="<%= coachName.rows[0].first_name %> <%= coachName.rows[0].last_name %>">
+                <button type="submit" class="btn btn-dark btn-lg">Review Coach</button>
+            </form>
+        </div>
+    </div>
+</div>

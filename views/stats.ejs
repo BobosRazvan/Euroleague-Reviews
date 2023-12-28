@@ -1,0 +1,45 @@
+<%- include('partials/header2') %>
+
+<div class="container px-4 py-5" id="featured-3">
+  <!-- Points Leaders -->
+  <h2 class="pb-2 border-bottom">Points Leaders</h2>
+  <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+    <% for (let i = 0; i < pointsLeadersAttributes.rows.length && i < 3; i++) { %>
+      <div class="feature col">
+        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+        </div>
+        <h3 class="fs-2 text-body-emphasis"><%= pointsLeadersAttributes.rows[i].first_name %> <%= pointsLeadersAttributes.rows[i].last_name %></h3>
+        <p><strong>PPG:</strong> <%= pointsLeadersPoints.rows[2-i].total_points %></p>
+        <p><strong>Team:</strong> <%= pointsLeadersAttributes.rows[i].team_name %><br><strong>Role:</strong> <%= pointsLeadersAttributes.rows[i].role %></p>
+      </div>
+    <% } %>
+  </div>
+
+  <!-- Rebounds Leaders -->
+  <h2 class="pb-2 border-bottom">Rebounds Leaders</h2>
+  <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+    <% for (let i = 0; i < reboundsLeadersAttributes.rows.length && i < 3; i++) { %>
+      <div class="feature col">
+        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+        </div>
+        <h3 class="fs-2 text-body-emphasis"><%= reboundsLeadersAttributes.rows[i].first_name %> <%= reboundsLeadersAttributes.rows[i].last_name %></h3>
+        <p><strong>RPG:</strong> <%= reboundsLeadersRebounds.rows[2-i].total_rebounds %></p>
+        <p><strong>Team:</strong> <%= reboundsLeadersAttributes.rows[i].team_name %><br><strong>Role:</strong> <%= reboundsLeadersAttributes.rows[i].role %></p>
+      </div>
+    <% } %>
+  </div>
+
+  <!-- Assists Leaders -->
+  <h2 class="pb-2 border-bottom">Assists Leaders</h2>
+  <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+    <% for (let i = 0; i < assistsLeadersAttributes.rows.length && i < 3; i++) { %>
+      <div class="feature col">
+        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+        </div>
+        <h3 class="fs-2 text-body-emphasis"><%= assistsLeadersAttributes.rows[i].first_name %> <%= assistsLeadersAttributes.rows[i].last_name %></h3>
+        <p><strong>APG:</strong> <%= reboundsLeadersAssists.rows[2-i].total_assists %></p>
+        <p><strong>Team:</strong> <%= assistsLeadersAttributes.rows[i].team_name %><br><strong>Role:</strong> <%= assistsLeadersAttributes.rows[i].role %></p>
+      </div>
+    <% } %>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<%- include('partials/header2') %>
+<div class="container">
+    <div class="jumbotron centered">
+      
+      <h1 class="display-3">New Review for <%=teamName%> </h1>
+      <p class="secret-text">Don't keep your reviews for yourself, share them!</p>
+  
+      <form action="/submitteamreview2" method="POST">
+
+
+
+        <div class="form-group">
+          <label for="rating">Rating (1-10):</label>
+          <input type="number" class="form-control text-center" name="rating" placeholder="Enter rating" min="1" max="10" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="comments">Your comments:</label>
+          <textarea class="form-control text-center" name="comments" rows="4" placeholder="Enter your comments" required></textarea>
+        </div>
+  
+       
+        
+            <input type="hidden" name="teamName" value="<%= teamName %>">
+            <button type="submit" class="btn btn-dark">Submit</button>
+        </form>
+      </form>
+  
+    </div>
+</div>

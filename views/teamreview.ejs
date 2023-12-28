@@ -1,0 +1,19 @@
+<%- include('partials/header2') %>
+<div class="jumbotron text-center">
+  <div class="container">
+    <h1 class="display-3">Team Reviews for <%=teamName%></h1>
+    <% for (let i = 0; i < teamData.length; i++) { %>
+        <p>
+          User: <%= teamData[i].email %> 
+          gave the match a rating: <%= teamData[i].rating %> 
+          and also commented: <%= teamData[i].comments %>
+        </p>
+      <% } %>
+      <form action="/submitteamreview1" method="post">
+        <input type="hidden" name="teamName" value="<%= teamName %>">
+        <button type="submit" class="btn btn-dark btn-lg px-4 gap-3">Submit a Review</button>
+    </form>
+  </div>
+</div>
+  </div>
+</div>

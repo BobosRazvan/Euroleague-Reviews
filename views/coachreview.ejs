@@ -1,0 +1,35 @@
+<%- include('partials/header2') %>
+
+<div class="jumbotron text-center">
+  <div class="container">
+    <h1 class="display-3">Coach Profile: <%= coachName %></h1>
+
+    <h2>Coach Information</h2>
+    <div>
+      <strong>First Name:</strong> <%= coachName.split(" ")[0] %><br>
+      <strong>Last Name:</strong> <%= coachName.split(" ")[1] %><br>
+      <% if (coachAttributes.length > 0) { %>
+        <strong>Position:</strong> <%= coachAttributes[0].role %><br>
+        <strong>Nationality:</strong> <%= coachAttributes[0].nationality %><br>
+        <strong>Birth Year:</strong> <%= coachAttributes[0].birthyear %><br>
+      <% } else { %>
+        <em>No information available</em><br>
+      <% } %>
+    </div>
+
+    
+    <h2>Coach Reviews</h2>
+    <% for (let i = 0; i < coachData.length; i++) { %>
+      <p>
+        User: <%= coachData[i].email %> 
+        gave the match a rating: <%= coachData[i].rating %> 
+        and also commented: <%= coachData[i].comments %>
+      </p>
+    <% } %>
+
+    <form action="/submitcoachreview1" method="post">
+      <input type="hidden" name="coachName" value="<%= coachName %>">
+      <button type="submit" class="btn btn-dark btn-lg px-4 gap-3">Submit a Review</button>
+    </form>
+  </div>
+</div>

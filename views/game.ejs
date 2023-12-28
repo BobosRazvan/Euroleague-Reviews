@@ -1,0 +1,165 @@
+<%- include('partials/header2') %>
+
+<div class="list-group container-fluid vh-1000">
+    <!-- Match 1 -->
+    <div class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+            <span class="mb-2">Game No 1 | 25 January 2024, 19:45</span>
+            <img src="assets\Fenerbahçe_Men's_Basketball_logo.png" class="team-logo" height="30" alt="Fenerbahce Logo">
+            Fenerbahce Beko Istanbul
+            <span>vs</span>
+            <img src="assets\Virtus_Bologna_logo.png" class="team-logo" height="20" alt="Virtus Logo">
+            Virtus Segafredo Bologna
+        </div>
+        <button class="btn btn-orange" onclick="submitGameForm('gameForm1')">Game Reviews</button>
+        <form id="gameForm1" action="/gamereview"  method="post" style="display: none;">
+            <input type="hidden" name="name" value="1">
+        </form>
+    </div>
+
+    <!-- Match 2 -->
+    <div class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+            <span class="mb-2">Game No 2 | 25 January 2024, 21:00</span>
+            <img src="assets\Alba_Berlin_logo.png" class="team-logo" height="30" alt="ALBA Berlin Logo">
+            ALBA Berlin
+            <span> <span></span>  vs </span>
+            <img src="assets\KK_Crvena_Zvezda_(logo).png" class="team-logo" height="20" alt="Crvena Zvezda Logo">
+            Crvena Zvezda Meridianbet Belgrade
+        </div>
+        <button class="btn btn-orange" onclick="submitGameForm('gameForm2')">Game Reviews</button>
+        <form id="gameForm2" action="/gamereview" method="post" style="display: none;">
+            <input type="hidden" name="name" value="2">
+        </form>
+    </div>
+
+    <!-- Match 3 -->
+    <div class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+            <span class="mb-2">Game No 3 | 25 January 2024, 21:05</span>
+            <img src="assets\Maccabi_Tel_Aviv_BC_logo.png" class="team-logo" height="30" alt="Maccabi Logo">
+            Maccabi Playtika Tel Aviv
+            <span>vs</span>
+            <img src="assets\Panathinaikos_BC_logo.png" class="team-logo" height="20" alt="Panathinaikos Logo">
+            Panathinaikos AKTOR Athens
+        </div>
+        <button class="btn btn-orange" onclick="submitGameForm('gameForm3')">Game Reviews</button>
+        <form id="gameForm3" action="/gamereview" method="post" style="display: none;">
+            <input type="hidden" name="name" value="3">
+        </form>
+    </div>
+
+    <!-- Match 4 -->
+    <div class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+            <span class="mb-2">Game No 4 | 25 January 2024, 21:30</span>
+            <img src="assets\Logo_FC_Bayern_München_Basketball_ab_2022.png" class="team-logo" height="30"
+                alt="FC Bayern Logo">
+            FC Bayern Munich
+            <span>vs</span>
+            <img src="assets\asvel.png" class="team-logo" height="20" alt="LDLC ASVEL Logo">
+            LDLC ASVEL Villeurbanne
+        </div>
+        <button class="btn btn-orange" onclick="submitGameForm('gameForm4')">Game Reviews</button>
+        <form id="gameForm4" action="/gamereview" method="post" style="display: none;">
+            <input type="hidden" name="name" value="4">
+        </form>
+    </div>
+
+    <!-- Match 5 -->
+    <div class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+            <span class="mb-2">Game No 5 | 25 January 2024, 21:45</span>
+            <img src="assets\real.png" class="team-logo" height="30" alt="Real Madrid Logo">
+            Real Madrid
+            <span>vs</span>
+            <img src="assets\Olympiacos_BasketBall.png" class="team-logo" height="20" alt="Olympiacos Logo">
+            Olympiacos Piraeus
+        </div>
+        <button class="btn btn-orange" onclick="submitGameForm('gameForm5')">Game Reviews</button>
+        <form id="gameForm5" action="/gamereview" method="post" style="display: none;">
+            <input type="hidden" name="name" value="5">
+        </form>
+    </div>
+
+    <!-- Match 6 -->
+    <div class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+            <span class="mb-2">Game No 6 | 26 January 2024, 19:30</span>
+            <img src="assets\Anadolu_Efes_SK_logo.png" class="team-logo" height="30" alt="Anadolu Efes Logo">
+            Anadolu Efes Istanbul
+            <span>vs</span>
+            <img src="assets\AS_Monaco_Basket_Logo.png" class="team-logo" height="20" alt="AS Monaco Logo">
+            AS Monaco
+        </div>
+        <button class="btn btn-orange" onclick="submitGameForm('gameForm6')">Game Reviews</button>
+        <form id="gameForm6" action="/gamereview" method="post" style="display: none;">
+            <input type="hidden" name="name" value="6">
+        </form>
+    </div>
+
+    <!-- Match 7 -->
+    <div class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+            <span class="mb-2">Game No 7 | 26 January 2024, 21:30</span>
+            <img src="assets\Saski_Baskonia.png" class="team-logo" height="30" alt="Baskonia Logo">
+            Baskonia Vitoria-Gasteiz
+            <span>vs</span>
+            <img src="assets\valencia.png" class="team-logo" height="20" alt="Valencia Logo">
+            Valencia Basket
+        </div>
+        <button class="btn btn-orange" onclick="submitGameForm('gameForm7')">Game Reviews</button>
+        <form id="gameForm7" action="/gamereview" method="post" style="display: none;">
+            <input type="hidden" name="name" value="7">
+        </form>
+    </div>
+
+    <!-- Match 8 -->
+    <div class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+            <span class="mb-2">Game No 8 | 26 January 2024, 21:30</span>
+            <img src="assets\Partizan_Basketball_Club-logo.png" class="team-logo" height="30" alt="Partizan Logo">
+            Partizan Mozzart Bet Belgrade
+            <span>vs</span>
+            <img src="assets\BC_Žalgiris_Logo.png" class="team-logo" height="20" alt="Zalgiris Logo">
+            Zalgiris Kaunas
+        </div>
+        <button class="btn btn-orange" onclick="submitGameForm('gameForm8')">Game Reviews</button>
+        <form id="gameForm8" action="/gamereview" method="post" style="display: none;">
+            <input type="hidden" name="name" value="8">
+        </form>
+    </div>
+
+    <!-- Match 9 -->
+    <div class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+            <span class="mb-2">Game No 9 | 26 January 2024, 21:30</span>
+            <img src="assets\milano.png" class="team-logo" height="30" alt="EA7 Emporio Armani Milano Logo">
+            EA7 Emporio Armani Milan
+            <span>vs</span>
+            <img src="assets\FC_Barcelona_(crest).png" class="team-logo" height="20" alt="FC Barcelona Logo">
+            FC Barcelona
+        </div>
+        <button class="btn btn-orange" onclick="submitGameForm('gameForm9')">Game Reviews</button>
+        <form id="gameForm9" action="/gamereview" method="post" style="display: none;">
+            <input type="hidden" name="name" value="9">
+        </form>
+    </div>
+</div>
+
+<footer class="py-3 my-4">
+    <!-- Your footer content -->
+</footer>
+
+<script>
+    function submitGameForm(formId) {
+        document.getElementById(formId).submit();
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

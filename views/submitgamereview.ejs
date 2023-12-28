@@ -1,0 +1,30 @@
+<%- include('partials/header2') %>
+<div class="container">
+    <div class="jumbotron centered">
+      
+      <h1 class="display-3">New Review for match </h1>
+      <p class="secret-text">Don't keep your reviews for yourself, share them!</p>
+  
+      <form action="/submitgamereview" method="POST">
+  
+        <!-- New field for match number -->
+        <div class="form-group">
+          <label for="matchNumber">Match Number (1-9):</label>
+          <input type="number" class="form-control text-center" name="matchNumber" placeholder="Enter match number" min="1" max="9" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="rating">Rating (1-10):</label>
+          <input type="number" class="form-control text-center" name="rating" placeholder="Enter rating" min="1" max="10" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="comments">Your comments:</label>
+          <textarea class="form-control text-center" name="comments" rows="4" placeholder="Enter your comments" required></textarea>
+        </div>
+  
+        <button type="submit" class="btn btn-dark">Submit</button>
+      </form>
+  
+    </div>
+</div>

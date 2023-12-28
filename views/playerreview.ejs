@@ -1,0 +1,47 @@
+<%- include('partials/header2') %>
+
+<div class="jumbotron text-center">
+  <div class="container">
+    <h1 class="display-3">Player Profile: <%= playerName %></h1>
+
+    <h2>Player Information</h2>
+    <div>
+      <strong>First Name:</strong> <%= playerName.split(" ")[0] %><br>
+      <strong>Last Name:</strong> <%= playerName.split(" ")[1] %><br>
+      <% if (playerAttributes.length > 0) { %>
+        <strong>Team:</strong> <%= playerAttributes[0].team_name %><br>
+        <strong>Position:</strong> <%= playerAttributes[0].role %><br>
+        <strong>Nationality:</strong> <%= playerAttributes[0].nationality %><br>
+        <strong>Height:</strong> <%= playerAttributes[0].height %><br>
+        <strong>Birth Year:</strong> <%= playerAttributes[0].birthyear %><br>
+      <% } else { %>
+        <em>No information available</em><br>
+      <% } %>
+    </div>
+
+    <h2>Player Stats</h2>
+    <% if (playerStats.length > 0) { %>
+      <div>
+        <strong>PPG:</strong> <%= playerStats[0].points %><br>
+        <strong>RPG:</strong> <%= playerStats[0].rebounds %><br>
+        <strong>APG:</strong> <%= playerStats[0].assists %><br>
+      </div>
+    <% } else { %>
+      <p><em>No stats available</em></p>
+    <% } %>
+
+    <h2>Player Reviews</h2>
+    <% for (let i = 0; i < playerData.length; i++) { %>
+      <p>
+        User: <%= playerData[i].email %> 
+        gave the match a rating: <%= playerData[i].rating %> 
+        and also commented: <%= playerData[i].comments %>
+      </p>
+    <% } %>
+
+    <form action="/submitplayerreview1" method="post">
+      <input type="hidden" name="playerName" value="<%= playerName %>">
+      <button type="submit" class="btn btn-dark btn-lg px-4 gap-3">Submit a Review</button>
+    </form>
+  </div>
+</div>

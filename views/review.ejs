@@ -1,0 +1,124 @@
+
+<%- include('partials/header2') %>
+
+<%
+  // Declare orderBy and filterBy variables with default values
+  const orderBy = locals.orderBy || 'latest';
+  const filterBy = locals.filterBy || 'all';
+%>
+
+<div class="container">
+  <h1 class="display-5 text-center mt-5 mb-4 fw-bold">Reviews</h1>
+  <!-- Dropdowns for sorting and filtering -->
+  <div class="mb-3 d-flex align-items-center">
+    <label for="orderBy" class="form-label mr-2">Order By:</label>
+    <select class="form-select" id="orderBy" name="orderBy">
+      <option value="latest" <% if (orderBy === 'latest') { %>selected<% } %>>Latest</option>
+      <option value="user_id" <% if (orderBy === 'user_id') { %>selected<% } %>>Users</option>
+      <option value="rating" <% if (orderBy === 'rating') { %>selected<% } %>>Rating</option>
+    </select>
+
+    <label for="filterBy" class="form-label ml-3 mr-2">Filter by:</label>
+    <select class="form-select" id="filterBy" name="filterBy">
+      <option value="all" <% if (filterBy === 'all') { %>selected<% } %>>All</option>
+      <option value="coach" <% if (filterBy === 'coach') { %>selected<% } %>>Coach Reviews</option>
+      <option value="team" <% if (filterBy === 'team') { %>selected<% } %>>Team Reviews</option>
+      <option value="player" <% if (filterBy === 'player') { %>selected<% } %>>Player Reviews</option>
+      <option value="game" <% if (filterBy === 'game') { %>selected<% } %>>Game Reviews</option>
+    </select>
+    
+
+    <button class="btn btn-dark ml-3" onclick="applyFilters()">Apply Filters</button>
+</div>
+    
+<div class="mb-3 d-flex align-items-center">
+  <label for="searchText" class="form-label mr-2">Search by Email or Comments:</label>
+  <input type="text" class="form-control" id="searchText" name="searchText" placeholder="Enter email or comments">
+  <button class="btn btn-dark ml-2" onclick="applySearch()">Search</button>
+</div>
+
+  
+
+  <% dataReviews.forEach(reviewWithDetails => { %>
+    <div class="card mb-5">
+      <% if (reviewWithDetails.review.player_id !== null) { %>
+        <!-- Player Review -->
+        <div class="card-header">
+          <h2 class="h4">Player Review</h2>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Player Details: <%=   reviewWithDetails.details.first_name  %> <%=   reviewWithDetails.details.last_name  %></p>
+          <p class="card-text">User <%= reviewWithDetails.review.email %> gave a rating of <%= reviewWithDetails.review.rating %> and commented <%= reviewWithDetails.review.comments %></p>
+        </div>
+      
+      <% } else if (reviewWithDetails.review.team_id !== null) { %>
+        <!-- Team Review -->
+        <div class="card-header">
+          <h2 class="h4">Team Review</h2>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Team Details: <%= reviewWithDetails.details.name %></p>
+          <p class="card-text">User <%= reviewWithDetails.review.email %> gave a rating of <%= reviewWithDetails.review.rating %> and commented <%= reviewWithDetails.review.comments %></p>
+        </div>
+      
+      <% } else if (reviewWithDetails.review.coach_id !== null) { %>
+        <!-- Coach Review -->
+        <div class="card-header">
+          <h2 class="h4">Coach Review</h2>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Coach Details: <%=   reviewWithDetails.details.first_name  %> <%=   reviewWithDetails.details.last_name  %></p>
+          <p class="card-text">User <%= reviewWithDetails.review.email %> gave a rating of <%= reviewWithDetails.review.rating %> and commented <%= reviewWithDetails.review.comments %></p>
+          
+        </div>
+      
+      <% } else if (reviewWithDetails.review.game_id !== null) { %>
+        <!-- Game Review -->
+        <div class="card-header">
+          <h2 class="h4">Game Review</h2>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Game Details: <%=  reviewWithDetails.details.team1_name %> vs <%= reviewWithDetails.details.team2_name  %></p>
+          <p class="card-text">User <%= reviewWithDetails.review.email %> gave a rating of <%= reviewWithDetails.review.rating %> and commented <%= reviewWithDetails.review.comments %></p>
+        </div>
+      <% } %>
+    </div>
+  <% }); %>
+
+</div>
+
+
+<script>
+  // Function to extract query parameters from URL
+  function getQueryParam(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+  }
+
+  // Set default values for dropdowns based on query parameters
+  const orderBy = getQueryParam('orderBy') || 'latest';
+  const filterBy = getQueryParam('filterBy') || 'all';
+
+  document.getElementById('orderBy').value = orderBy;
+  document.getElementById('filterBy').value = filterBy;
+
+  // Function to apply filters
+  function applyFilters() {
+  const orderBy = document.getElementById('orderBy').value;
+  const filterBy = document.getElementById('filterBy').value;
+  const searchText = document.getElementById('searchText').value;
+
+  // Redirect to the same route with query parameters for ordering, filtering, and searching
+  window.location.href = `/reviews?orderBy=${orderBy}&filterBy=${filterBy}&searchText=${searchText}`;
+}
+
+// Function to apply search only
+function applySearch() {
+  const searchText = document.getElementById('searchText').value;
+
+  // Redirect to the same route with query parameters for searching
+  window.location.href = `/reviews?searchText=${searchText}`;
+}
+</script>
+</body>
+</html>

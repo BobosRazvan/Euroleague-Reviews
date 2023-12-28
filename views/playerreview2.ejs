@@ -1,0 +1,41 @@
+<%- include('partials/header2') %>
+
+
+<div class="jumbotron text-center">
+  <div class="container">
+    <h1 class="display-3">Player Profile: <%= playerName %></h1>
+    
+    <h2>Player Information</h2>
+    <ul>
+      <li><strong>First Name:</strong> <%= playerName.split(" ")[0] %></li>
+      <li><strong>Last Name:</strong> <%= playerName.split(" ")[1] %></li>
+      <% if (playerAttributes.length > 0) { %>
+        <li><strong>Team:</strong> <%= playerAttributes[0].team_name %></li>
+        <li><strong>Position:</strong> <%= playerAttributes[0].role %></li>
+        <li><strong>Nationality:</strong> <%= playerAttributes[0].nationality %></li>
+        <li><strong>Height:</strong> <%= playerAttributes[0].height %></li>
+        <li><strong>Birth Year:</strong> <%= playerAttributes[0].birthyear %></li>
+      <% } else { %>
+        <li><em>No information available</em></li>
+      <% } %>
+    </ul>
+
+    <h2>Player Stats</h2>
+    <% if (playerStats.length > 0) { %>
+      <ul>
+        <li><strong>PPG:</strong> <%= playerStats[0].points %></li>
+        <li><strong>RPG:</strong> <%= playerStats[0].rebounds %></li>
+        <li><strong>APG:</strong> <%= playerStats[0].assists %></li>
+      </ul>
+    <% } else { %>
+      <p><em>No stats available</em></p>
+    <% } %>
+    <h2>Player Reviews</h2>
+    <h3> There are no reviews yet for this player.</h3>
+
+    <form action="/submitplayerreview1" method="post">
+        <input type="hidden" name="playerName" value="<%= playerName %>">
+        <button type="submit" class="btn btn-dark btn-lg px-4 gap-3">Submit a Review</button>
+    </form>
+  </div>
+</div>
